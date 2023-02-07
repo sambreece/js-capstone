@@ -82,3 +82,25 @@ body {
     line-height:  1.7;
 }
 
+#right_container {
+display: initial;
+}
+
+.container {
+    width: 100%;
+  }
+  
+  .row {
+    float: left;
+    width: 100%;
+  }
+  
+  .square {
+    
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+    background-color: rgb(255, 0, 234);
+    float: left;
+  }
+
