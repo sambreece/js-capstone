@@ -90,8 +90,8 @@ h3 {
 display: initial;
 }
 
-.play_along_container {
-    margin-top: 96px;
+#play_along_container {
+    margin-top: 136px;
     margin-left: 79px;
     margin-right: 133px;
 }
