@@ -64,6 +64,30 @@ html {
     padding-top: 1.5rem;
 }
 
+#HideButton {
+    display: grid;
+    position: left;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    
+  }
+  
+  .form-label {
+    display: none;
+  }
+  
+  .form-control {
+    font-size: 14px;
+    height: 30px;
+    padding: 5px 10px;
+  }
+  
+  
 .dropdown {
     width: 100%;
 }
