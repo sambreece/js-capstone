@@ -2,12 +2,12 @@
         --color-primary: #FF9300;
     /*================== Green Theme ===========================*/
         --color-primary: #FF9300;
-        --color-primary-variant: #FF24FF;
+        --color-primary-variant: #403F3E;
         --color-bg-1: #00ff00;
         --color-bg-2: #FFFFFF; 
         --color-bg-3: #000000;
         --color-bg-4: #325762;
-        --color-bg-5: #403F3E;
+        --color-bg-5:  #FF24FF;
         --color-white: hsl(0, 0%, 90%);
 }
 
@@ -18,29 +18,52 @@ body {
 }
 h1 {
     margin: 0;
-    background-color: var(--color-bg-4);
+    background-color: var(--color-primary-variant);
     border-bottom: 2px solid var(--color-bg-1);
 }
 
-#top_article {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+* {
+    margin: 0;
+    padding: 5rem;
+    border: 1rem;
+    outline:0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
-#bottom_article {
-    height: 45%;
-    display: flex;
-    justify-content: space-evenly;
+html {
+    scroll-behavior: smooth;
 }
 
-#speech_container {
-    width: 40%;
+#left_container {
+    display:grid ;
+    border: 2px solid var(--color-bg-1);
+    justify-content: left;
+    height: 30%;
+    width: 45%;
+    display: relative;
+    justify-content: left;
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  #right_container {
+    position:absolute;
+    right: 3rem;
+    top: 8rem;
+    display: grid;
+    border: 2px solid var(--color-bg-1);
+    height: 75%;
+    width: 45%;
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
 }
+
 .dropdown {
     width: 100%;
 }
+
 #speech_button_container {
     display: flex;
     justify-content: space-evenly;
@@ -51,3 +74,11 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--color-bg-3) url('');
+    color: var(--color-bg-5);
+    line-height:  1.7;
+}
+
