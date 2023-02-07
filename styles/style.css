@@ -37,6 +37,8 @@ html {
 }
 
 #left_container {
+    max-width: 500px;
+    min-width: 300px;
     display:grid ;
     border: 2px solid var(--color-bg-1);
     justify-content: left;
@@ -49,12 +51,14 @@ html {
   }
 
   #right_container {
+    max-width: 500px;
+    min-width: 300px;
     position:absolute;
     right: 3rem;
     top: 8rem;
     display: grid;
     border: 2px solid var(--color-bg-1);
-    height: 75%;
+    height: 100%;
     width: 45%;
     padding-left: 1.5rem;
     padding-top: 1.5rem;
@@ -67,6 +71,11 @@ html {
 #speech_button_container {
     display: flex;
     justify-content: space-evenly;
+}
+
+#step_synth_container {
+    margin-left: -1.5rem;
+    margin-top: -1rem;
 }
 #synth_container {
     width: 45%;
@@ -87,13 +96,7 @@ h3 {
 }
 
 #right_container {
-display: initial;
-}
-
-#play_along_container {
-    margin-top: 136px;
-    margin-left: 79px;
-    margin-right: 133px;
+    display: initial;
 }
 
 .grid-container {
@@ -113,4 +116,29 @@ display: initial;
     
   }
 
+
+#play_along_container {
+    display: flex;
+    justify-content: center;
+    height: 15%;
+    margin-left: -1.5rem;
+    margin-top: -1rem;
+}
+
+#field {
+    width: 30%;
+    height: 100%;
+    background-color: gray;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#circle {
+    width: 8%;
+    height: 8%;
+    background-color: var(--color-bg-1);
+    border-radius: 50%;
+}
 
