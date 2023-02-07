@@ -1,0 +1,53 @@
+:root {
+        --color-primary: #FF9300;
+    /*================== Green Theme ===========================*/
+        --color-primary: #FF9300;
+        --color-primary-variant: #FF24FF;
+        --color-bg-1: #00ff00;
+        --color-bg-2: #FFFFFF; 
+        --color-bg-3: #000000;
+        --color-bg-4: #325762;
+        --color-bg-5: #403F3E;
+        --color-white: hsl(0, 0%, 90%);
+}
+
+body { 
+    margin: 0;
+    background-color: var(--color-bg-3);
+    color: var(--color-bg-5);
+}
+h1 {
+    margin: 0;
+    background-color: var(--color-bg-4);
+    border-bottom: 2px solid var(--color-bg-1);
+}
+
+#top_article {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#bottom_article {
+    height: 45%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#speech_container {
+    width: 40%;
+}
+.dropdown {
+    width: 100%;
+}
+#speech_button_container {
+    display: flex;
+    justify-content: space-evenly;
+}
+#synth_container {
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
