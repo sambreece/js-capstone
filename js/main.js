@@ -188,15 +188,15 @@ function setTranslate(xPos, yPos, el) {
   }
 
  
-  circle.addEventListener("mousedown", (event) => {
+  field.addEventListener("mousedown", (event) => {
     const values = dragStart(event);
     triggerAttack(values[0], values[1]);
   }, false);
-  circle.addEventListener("mouseup", (event) => { 
+  field.addEventListener("mouseup", (event) => { 
     dragEnd(event);
     synth.triggerRelease();
   }, false);
-  circle.addEventListener("mousemove", (event) => { 
+  field.addEventListener("mousemove", (event) => { 
     Tone.start();
     const values = drag(event);
     move(values[0], values[1]);
@@ -209,7 +209,7 @@ function setTranslate(xPos, yPos, el) {
   }
 
   function checkBounds(coordinates) {
-    const marginX = 20;
+    const marginX = 15;
     const marginY = 15;
     const fieldBounds = field.getBoundingClientRect();
     const fieldBoundsY = (fieldBounds.bottom - fieldBounds.top - marginY)/2;
