@@ -6,7 +6,6 @@
           return;
         }
       
-
         const voices = speechSynthesis.getVoices();
       
         for (let i = 0; i < voices.length; i++) {
@@ -23,8 +22,6 @@
         }
       }
     
-
-
       populateVoiceList();
       if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
         speechSynthesis.onvoiceschanged = populateVoiceList;
@@ -32,12 +29,29 @@
       
  
           // Text-To Speech Setup:
-      speechForm.addEventListener("submit", (event) => {
-          event.preventDefault();
-          const msg = useFormInputs(event);
-          speechSynthesis.speak(msg);
-      });
-      
+          if ('speechSynthesis' in window) {
+          let repeatSpeech = null;
+
+          speechForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const msg = useFormInputs(event);
+            const loopCheckbox = document.querySelector("#loop_box");
+            if (loopCheckbox.checked) {
+              repeatSpeech = setInterval(function() {
+                speechSynthesis.speak(msg);
+              }, 5);
+            } else {
+              if (repeatSpeech) {
+              clearInterval(repeatSpeech);
+              } else {
+              speechSynthesis.speak(msg);
+            }
+          }
+        });
+      }else {
+          console.log('Speech synthesis is not supported in your browser');
+        }
+    
 
 
         // Code to trigger the speech synth will go here
@@ -52,18 +66,25 @@
           return msg;
       }
     
+      function loopCheckbox(loopCheckbox) {
+        if (loopCheckbox.checked) {
+          const repeatSpeech = function() {
+              speechSynthesis.speak(speech);
+              setTimeout(repeatSpeech, 1000);
+          };
+          repeatSpeech();
+      } else {
+          speechSynthesis.speak(speech);
+      }          
+    }
 
 
-      function playSpeech() {
-        var speechText = document.getElementById("speechText").value;
-        var rateRange = document.getElementById("rateRange").value;
-        var pitchRange = document.getElementById("pitchRange").value;
-        var volumeRange = document.getElementById("volumeRange").value;
-        var voiceSelect = document.getElementById("voiceSelect").value;
-      }
-      
- 
 
+
+
+
+
+    
       //  function for the button event to trigger the speech synth.
       document.getElementById("HideButton").addEventListener("click", function() {
         let speechSynthContainer = document.getElementById("speech_synth_container");
@@ -73,8 +94,6 @@
           speechSynthContainer.style.display = "none";
         }
       });   
-
-
 
       document.getElementById("useFormInputs").onclick = playSpeech;
 
@@ -94,5 +113,6 @@
 
       document.getElementById("HideButton").onclick = toggleForm;
 
- 
+  
+      
 
