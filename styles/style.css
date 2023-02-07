@@ -82,3 +82,35 @@ body {
     line-height:  1.7;
 }
 
+h3 {
+    font-size: larger;
+}
+
+#right_container {
+display: initial;
+}
+
+#play_along_container {
+    margin-top: 136px;
+    margin-left: 79px;
+    margin-right: 133px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-gap: 5px; 
+    background-color: black;
+    padding: 3px;
+    
+    
+  }
+
+  .grid-container > div {
+    background-color: rgb(255, 0, 234);
+    text-align: center;
+    padding: 10px;
+    
+  }
+
+
