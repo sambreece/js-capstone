@@ -39,14 +39,15 @@
             if (loopCheckbox.checked) {
               repeatSpeech = setInterval(function() {
                 speechSynthesis.speak(msg);
+                loopCheckbox.addEventListener ("change", (event) => {
+                  clearInterval(repeatSpeech);
+                });
+
+
               }, 5);
-            } else {
-              if (repeatSpeech) {
-              clearInterval(repeatSpeech);
               } else {
               speechSynthesis.speak(msg);
             }
-          }
         });
       }else {
           console.log('Speech synthesis is not supported in your browser');
@@ -66,24 +67,6 @@
           return msg;
       }
     
-      function loopCheckbox(loopCheckbox) {
-        if (loopCheckbox.checked) {
-          const repeatSpeech = function() {
-              speechSynthesis.speak(speech);
-              setTimeout(repeatSpeech, 1000);
-          };
-          repeatSpeech();
-      } else {
-          speechSynthesis.speak(speech);
-      }          
-    }
-
-
-
-
-
-
-
     
       //  function for the button event to trigger the speech synth.
       document.getElementById("HideButton").addEventListener("click", function() {
@@ -95,20 +78,8 @@
         }
       });   
 
-      document.getElementById("useFormInputs").onclick = playSpeech;
-
-      window.onload = function() {
-        document.getElementById("speechFormContainer").style.display = "none";
-      };
-
-
       function toggleForm() {
         var speechFormContainer = document.getElementById("speechFormContainer");
-        if (speechFormContainer.style.display === "none") {
-          speechFormContainer.style.display = "block";
-        } else {
-          speechFormContainer.style.display = "none";
-        }
       }
 
       document.getElementById("HideButton").onclick = toggleForm;
