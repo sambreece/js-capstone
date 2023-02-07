@@ -29,8 +29,8 @@
       
  
           // Text-To Speech Setup:
-          if ('speechSynthesis' in window) {
           let repeatSpeech = null;
+          if ('speechSynthesis' in window) {
 
           speechForm.addEventListener("submit", (event) => {
             event.preventDefault();
@@ -39,11 +39,6 @@
             if (loopCheckbox.checked) {
               repeatSpeech = setInterval(function() {
                 speechSynthesis.speak(msg);
-                loopCheckbox.addEventListener ("change", (event) => {
-                  clearInterval(repeatSpeech);
-                });
-
-
               }, 5);
               } else {
               speechSynthesis.speak(msg);
@@ -53,7 +48,14 @@
           console.log('Speech synthesis is not supported in your browser');
         }
     
-
+        loop_box.addEventListener("change", (event) => {
+          event.preventDefault();
+          if(!loop_box.checked) {
+            clearInterval(repeatSpeech);
+            window.speechSynthesis.cancel();
+            console.log("cleared the clearinterval");
+          }
+        });
 
         // Code to trigger the speech synth will go here
       function useFormInputs(event) {
