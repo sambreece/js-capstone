@@ -96,6 +96,7 @@ html {
 #step_synth_container {
     margin-left: -1.5rem;
     margin-top: -1rem;
+    padding: 10px;
 }
 #synth_container {
     width: 45%;
@@ -136,7 +137,7 @@ h3 {
     
   }
 
-  @keyframes animate {
+  /* @keyframes animate {
     0% {
       background-position: 0%;
     }
@@ -181,10 +182,10 @@ input:checked:before {
     margin-right: 5px;
   }
 
-  input[type="checkbox"] {
- margin-bottom: 10px;
-  border-radius: 1rem;
-}
+ input[type="checkbox"] {
+    margin-bottom: 10px;
+    border-radius: 1rem;
+} */
 
 #play_along_container {
     display: flex;
@@ -213,4 +214,15 @@ input:checked:before {
 
 #circle:active {
     border: 2px solid var(--color-bg-5);
+}
+
+/* #stepButton {
+    color: white;
+    background-color: #00ff00;
+    height: 10%;
+    width: 10%;
+} */
+
+.cell {
+    background-color: #00ff00;
 }
