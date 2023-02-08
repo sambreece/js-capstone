@@ -9,6 +9,10 @@
     <!-- CSS Reset -->
     <link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
 
+    <!--Material Icons (Google)-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
     <!--Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
@@ -60,30 +64,21 @@
                 <div id="hide_button_container"><button id="HideButton">Hide Button</button></div>
                
                 <div id="overall_controls_container"> 
-                    <!--LFO Effects-->
+                    <!--Oscillator Effects-->
                     <div id="lfo_container">
                         <div class="mb-3">
-                            <label for="pannerRange" class="form-label">Panner</label>
-                            <input type="range" step="0.01" min="0.1" max="2" class="form-range" id="pannerRange">
+                            <tone-play-toggle id="oscillator"></tone-play-toggle>
+                            <tone-slider label="Volume" id="volRange" units="dB" value="-20" step="0.5" min="-30" max="-10"></tone-slider>
                         </div>
                         <div class="mb-3">
-                            <label for="filterRange" class="form-label">Filter</label>
-                            <input type="range" step="0.01" min="0.1" max="2" class="form-range" id="filterRange">
+                            <tone-slider label="Frequency Shift" id="freqRange" units="hz" value="0" step="5" min="0" max="50"></tone-slider>
                         </div>
                         <div class="mb-3">
-                            <label for="tremoloRange" class="form-label">Pitch</label>
-                            <input type="range" step="0.01" min="0" max="2" class="form-range" id="tremoloRange">
+                            <tone-slider label="Filter" id="filterRange" units="hz" value="0" step="1" min="0" max="15"></tone-slider>
                         </div>
-                    </div>
-                    <!--Reverb-->
-                    <div class="mb-3">
-                        <label for="reverbRange" class="form-label">Reverb Decay Time</label>
-                        <input type="range" step="0.01" min="0" max="1" class="form-range" id="reverbRange">       
-                    </div>
-                    <!--Modulation Rate-->
-                    <div class="mb-3">
-                        <label for="modulationRange" class="form-label">Modulation Rate</label>
-                        <input type="range" step="0.01" min="0" max="1" class="form-range" id="modulationRange">       
+                        <div class="mb-3">
+                            <tone-slider label="Bit Crush" id="bitRange" value="16" step="1" min="1" max="16"></tone-slider>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,305 +91,26 @@
                     <div id="circle"></div>
                 </div>        
             </div>
-
             <div id="step_synth_container">
-                <div id="stepSequencer"><h3>Step Sequencer</h3>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
+
+                <div id="stepControls">
+                    <tone-play-toggle></tone-play-toggle>
+                    <tone-slider id="tempoSlider" label="tempo" units="bpm" min="60" max="240" value="90"></tone-slider>
+                    <div id="content">
+                        <tone-slider label="pitch" min="-12" max="12" value="0" units="hz"></tone-slider>
                     </div>
                 </div>
-                <div id="fatOscStep">
-                    <h3>Fat Oscillator Sequencer</h3>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                    <div></div>
+                <div id="inst1Step">
+                    <tone-step-sequencer id="inst1Seq"></tone-step-sequencer>
                 </div>
-                <div id="metalSynStep">
-                    <h3>Metal Synth</h3>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
+                <div id="inst2Step">
+                    <tone-step-sequencer id="inst2Seq"></tone-step-sequencer>
                 </div>
-                <div id="monoSynStep">
-                    <h3>Mono Synth</h3>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
-                    <div class="grid-container">
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div> 
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>  
-                        <div></div>
-                    </div>
+                <div id="inst3Step">
+                    <tone-step-sequencer id="inst3Seq"></tone-step-sequencer>
+                </div>
+                <div id="inst4Step">
+                    <tone-step-sequencer id="inst4Seq"></tone-step-sequencer>
                 </div>
             </div>
         </article>
@@ -403,8 +119,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!--Tone.js-->
     <script src="./js/tone.js"></script>
+    <script src="./js/components.js"></script>
+    <script src="./js/tone-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.3/webcomponents-bundle.js"></script>
     <!--Three.js-->
     <script src="./js/three.js"></script>
+    <!--JQuery-->
+    <script src="https://releases.jquery.com/git/jquery-git.min.js"></script>
     <!--Main JS-->
     <script src="./js/main.js"></script>
 </body>

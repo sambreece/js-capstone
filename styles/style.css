@@ -97,6 +97,7 @@ html {
     margin-left: -1.5rem;
     margin-top: -1rem;
 }
+
 #synth_container {
     width: 45%;
     display: flex;
@@ -136,6 +137,55 @@ h3 {
     
   }
 
+  /* @keyframes animate {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 400%;
+    }
+} 
+
+.SOUNDSDIV{
+    top: 100PX;
+    position: absolute;
+    width: max-content;
+}
+
+input:checked:before {
+    filter: blur(10px);
+    opacity: 1;
+    animation: animate 12s linear infinite;
+  }
+
+  input:before {
+    content: "";
+    position: absolute;   
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    transition: 0.5s;
+
+  }
+
+  input {
+    height: 10px;
+    width: 10px;
+    transform: translate(0%, 0%);
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+
+ input[type="checkbox"] {
+    margin-bottom: 10px;
+    border-radius: 1rem;
+} */
 
 #play_along_container {
     display: flex;
@@ -164,4 +214,20 @@ h3 {
 
 #circle:active {
     border: 2px solid var(--color-bg-5);
+}
+
+#inst1Seq {
+    padding: 1px;
+}
+
+#inst2Seq {
+    padding: 1px;
+}
+
+#inst3Seq {
+    padding: 1px;
+}
+
+#inst4Seq {
+    padding: 1px;
 }
