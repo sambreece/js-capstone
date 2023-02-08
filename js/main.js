@@ -15,49 +15,25 @@
           if (voices[i].default) {
             option.textContent += ' — DEFAULT';
           }
-
+      
           option.setAttribute('data-lang', voices[i].lang);
           option.setAttribute('data-name', voices[i].name);
           document.getElementById("voiceSelect").appendChild(option);
         }
       }
-    
+      
       populateVoiceList();
       if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
         speechSynthesis.onvoiceschanged = populateVoiceList;
       }
       
- 
           // Text-To Speech Setup:
-          let repeatSpeech = null;
-          if ('speechSynthesis' in window) {
-
-          speechForm.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const msg = useFormInputs(event);
-            const loopCheckbox = document.querySelector("#loop_box");
-            if (loopCheckbox.checked) {
-              repeatSpeech = setInterval(function() {
-                speechSynthesis.speak(msg);
-              }, 5);
-              } else {
-              speechSynthesis.speak(msg);
-            }
-        });
-      }else {
-          console.log('Speech synthesis is not supported in your browser');
-        }
-    
-        loop_box.addEventListener("change", (event) => {
+      speechForm.addEventListener("submit", (event) => {
           event.preventDefault();
-          if(!loop_box.checked) {
-            clearInterval(repeatSpeech);
-            window.speechSynthesis.cancel();
-            console.log("cleared the clearinterval");
-          }
-        });
-
-        // Code to trigger the speech synth will go here
+          const msg = useFormInputs(event);
+          speechSynthesis.speak(msg);
+      });
+      
       function useFormInputs(event) {
           let msg = new SpeechSynthesisUtterance();
           const voices = window.speechSynthesis.getVoices();
@@ -68,25 +44,16 @@
           msg.volume = volumeRange.value;
           return msg;
       }
-    
-    
-      //  function for the button event to trigger the speech synth.
-      document.getElementById("HideButton").addEventListener("click", function() {
-        let speechSynthContainer = document.getElementById("speech_synth_container");
-        if (speechSynthContainer.style.display === "none") {
-          speechSynthContainer.style.display = "block";
-        } else {
-          speechSynthContainer.style.display = "none";
-        }
-      });   
 
-      function toggleForm() {
-        var speechFormContainer = document.getElementById("speechFormContainer");
-      }
 
-      document.getElementById("HideButton").onclick = toggleForm;
+      
+      
 
-  
+
+
+
+
+
 //Play Along Synth:
 
       //Movement of Circle:
@@ -221,15 +188,15 @@ function setTranslate(xPos, yPos, el) {
   }
 
  
-  field.addEventListener("mousedown", (event) => {
+  circle.addEventListener("mousedown", (event) => {
     const values = dragStart(event);
     triggerAttack(values[0], values[1]);
   }, false);
-  field.addEventListener("mouseup", (event) => { 
+  circle.addEventListener("mouseup", (event) => { 
     dragEnd(event);
     synth.triggerRelease();
   }, false);
-  field.addEventListener("mousemove", (event) => { 
+  circle.addEventListener("mousemove", (event) => { 
     Tone.start();
     const values = drag(event);
     move(values[0], values[1]);
@@ -242,7 +209,7 @@ function setTranslate(xPos, yPos, el) {
   }
 
   function checkBounds(coordinates) {
-    const marginX = 15;
+    const marginX = 20;
     const marginY = 15;
     const fieldBounds = field.getBoundingClientRect();
     const fieldBoundsY = (fieldBounds.bottom - fieldBounds.top - marginY)/2;
@@ -260,33 +227,3 @@ function setTranslate(xPos, yPos, el) {
     return coordinates;
   }
 
-
-  // Overall Effects
-
-
-    //Panner
-    const panner = new Tone.AutoPanner({
-			frequency: 4,
-			depth: 1
-		}).toDestination().start();
-    //Filter
-    const filter = new Tone.AutoFilter({
-			frequency: 2,
-			depth: 0.6
-		}).toDestination().start();
-    
-    //Tremolo
-    const tremolo = new Tone.Tremolo({
-			frequency: 0.6,
-			depth: 0.7
-		}).toDestination().start();
-    //Reverb
-    const reverb = new Tone.Reverb().toDestination();
-
-    //Modulation
-    
-    overall_controls_container.addEventListener("change", (event) => {
-      panner.frequency.value = parseFloat(pannerRange.value);
-      filter.frequency.value = parseFloat(filterRange.value);
-      tremolo.frequency.value = parseFloat(tremoloRange.value)
-    });
