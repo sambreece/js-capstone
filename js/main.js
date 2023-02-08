@@ -227,3 +227,70 @@ function setTranslate(xPos, yPos, el) {
     return coordinates;
   }
 
+// Create a mapping of keys to sounds
+const sounds = {
+  'C': new Tone.Synth().toMaster(),
+  'G': new Tone.MetalSynth().toMaster(),
+  'F': new Tone.FatOscillator().toMaster(),
+  'A': new Tone.MonoSynth().toMaster()
+};
+
+// Create a looping function that cycles through the keys
+let currentKey = 'C';
+
+function loop() {
+  // Generate the sound associated with the current key
+  const stepSynth = sounds[currentKey];
+
+  // Check if the corresponding checkbox is checked
+  const checkboxId = `#checkbox-${currentKey}`;
+  const checkbox = document.getElementById(checkboxId);
+  if (checkbox.checked) {
+    // Play the sound if the checkbox is checked
+    stepSynth.triggerAttackRelease("C4", "8n");
+  }
+
+  // Move to the next key
+  switch (currentKey) {
+  case 'C':
+    currentKey = 'G';
+    break;
+  case 'G':
+    currentKey = 'F';
+    break;
+  case 'F':
+    currentKey = 'A';
+    break;
+  case 'A':
+    currentKey = 'C';
+    break;
+  }
+
+  // Call the looping function again after a certain amount of time
+  setTimeout(loop, 1000);
+}
+
+// Start the loop
+loop();
+
+// Add event listeners to the checkboxes
+const checkboxes = document.querySelectorAll('.grid-container input[type="checkbox"]');
+for (let i = 0; i < checkboxes.length; i++) {
+  checkboxes[i].addEventListener('change', function() {
+    // Update the currentKey based on the checkbox id
+    switch (checkboxes[i].id) {
+      case 'checkbox-C':
+        currentKey = checkboxes[i].checked ? 'C' : currentKey;
+        break;
+      case 'checkbox-G':
+        currentKey = checkboxes[i].checked ? 'G' : currentKey;
+        break;
+      case 'checkbox-F':
+        currentKey = checkboxes[i].checked ? 'F' : currentKey;
+        break;
+      case 'checkbox-A':
+        currentKey = checkboxes[i].checked ? 'A' : currentKey;
+        break;
+    }
+  });
+}
