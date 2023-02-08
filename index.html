@@ -24,41 +24,70 @@
     </header>
     <main>
         <article id="left_container">
-            <div id="speech_synth_container">
-                <form action="#" id="speechForm">
-                    <div class="mb-3">
-                        <label for="speechText" class="form-label">Speech Synthesizer</label>
-                        <input type="text" class="form-control" id="speechText" placeholder="Enter text to speak" required>
-                    </div>
-                    <input type="checkbox" id="loop_box" name="Looper" value="on">
-                    <div class="mb-3">
-                        <label for="rateRange" class="form-label">Rate</label>
-                        <input type="range" step="0.01" min="0.1" max="2" class="form-range" id="rateRange">
-                    </div>
-                    <div class="mb-3">
-                        <label for="pitchRange" class="form-label">Pitch</label>
-                        <input type="range" step="0.01" min="0" max="2" class="form-range" id="pitchRange">
-                    </div>
-                    <div class="mb-3">
-                        <label for="volumeRange" class="form-label">Volume</label>
-                        <input type="range" step="0.01" min="0" max="1" class="form-range" id="volumeRange">       
-                    </div>
-
-                    <div class="mb-3">
-                        <select class="custom-select form-control input-dropdown" id="voiceSelect"></select>
-                    </div>
-                    <div class="mb-3" id="speech_button_container">
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-success mb-3">Speak</button>
+            <div id="top_left"></div>
+            <div id="bottom_left">
+                <div id="speech_synth_container">
+                    <form action="#" id="speechForm">
+                        <div class="mb-3">
+                            <label for="speechText" class="form-label">Speech Synthesizer</label>
+                            <input type="text" class="form-control" id="speechText" placeholder="Enter text to speak" required>
+                        </div>
+                        <input type="checkbox" id="loop_box" name="Looper" value="on">
+                        <div class="mb-3">
+                            <label for="rateRange" class="form-label">Rate</label>
+                            <input type="range" step="0.01" min="0.1" max="2" class="form-range" id="rateRange">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pitchRange" class="form-label">Pitch</label>
+                            <input type="range" step="0.01" min="0" max="2" class="form-range" id="pitchRange">
+                        </div>
+                        <div class="mb-3">
+                            <label for="volumeRange" class="form-label">Volume</label>
+                            <input type="range" step="0.01" min="0" max="1" class="form-range" id="volumeRange">       
+                        </div>
+    
+                        <div class="mb-3">
+                            <select class="custom-select form-control input-dropdown" id="voiceSelect"></select>
+                        </div>
+                        <div class="mb-3" id="speech_button_container">
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-success mb-3">Speak</button>
+                            </div>
+                        </div>
+                    </form>
+                
+                </div>
+                <div id="hide_button_container"><button id="HideButton">Hide Button</button></div>
+               
+                <div id="overall_controls_container"> 
+                    <!--LFO Effects-->
+                    <div id="lfo_container">
+                        <div class="mb-3">
+                            <label for="pannerRange" class="form-label">Panner</label>
+                            <input type="range" step="0.01" min="0.1" max="2" class="form-range" id="pannerRange">
+                        </div>
+                        <div class="mb-3">
+                            <label for="filterRange" class="form-label">Filter</label>
+                            <input type="range" step="0.01" min="0.1" max="2" class="form-range" id="filterRange">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tremoloRange" class="form-label">Pitch</label>
+                            <input type="range" step="0.01" min="0" max="2" class="form-range" id="tremoloRange">
                         </div>
                     </div>
-                </form>
+                    <!--Reverb-->
+                    <div class="mb-3">
+                        <label for="reverbRange" class="form-label">Reverb Decay Time</label>
+                        <input type="range" step="0.01" min="0" max="1" class="form-range" id="reverbRange">       
+                    </div>
+                    <!--Modulation Rate-->
+                    <div class="mb-3">
+                        <label for="modulationRange" class="form-label">Modulation Rate</label>
+                        <input type="range" step="0.01" min="0" max="1" class="form-range" id="modulationRange">       
+                    </div>
+                </div>
+            </div>
             
-            </div>
-           
-            <div id="overall_controls_container"> 
-                <button id="HideButton">Hide Button</button>
-            </div>
 
         </article>
         <article id="right_container">

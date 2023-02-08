@@ -259,3 +259,34 @@ function setTranslate(xPos, yPos, el) {
     }
     return coordinates;
   }
+
+
+  // Overall Effects
+
+
+    //Panner
+    const panner = new Tone.AutoPanner({
+			frequency: 4,
+			depth: 1
+		}).toDestination().start();
+    //Filter
+    const filter = new Tone.AutoFilter({
+			frequency: 2,
+			depth: 0.6
+		}).toDestination().start();
+    
+    //Tremolo
+    const tremolo = new Tone.Tremolo({
+			frequency: 0.6,
+			depth: 0.7
+		}).toDestination().start();
+    //Reverb
+    const reverb = new Tone.Reverb().toDestination();
+
+    //Modulation
+    
+    overall_controls_container.addEventListener("change", (event) => {
+      panner.frequency.value = parseFloat(pannerRange.value);
+      filter.frequency.value = parseFloat(filterRange.value);
+      tremolo.frequency.value = parseFloat(tremoloRange.value)
+    });
