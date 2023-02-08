@@ -96,8 +96,8 @@ html {
 #step_synth_container {
     margin-left: -1.5rem;
     margin-top: -1rem;
-    padding: 10px;
 }
+
 #synth_container {
     width: 45%;
     display: flex;
@@ -216,13 +216,18 @@ input:checked:before {
     border: 2px solid var(--color-bg-5);
 }
 
-/* #stepButton {
-    color: white;
-    background-color: #00ff00;
-    height: 10%;
-    width: 10%;
-} */
+#inst1Seq {
+    padding: 1px;
+}
 
-.cell {
-    background-color: #00ff00;
+#inst2Seq {
+    padding: 1px;
+}
+
+#inst3Seq {
+    padding: 1px;
+}
+
+#inst4Seq {
+    padding: 1px;
 }
