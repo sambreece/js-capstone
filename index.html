@@ -38,14 +38,18 @@
             <button id="visualizer6">Visualizer6</button>
             <button id="visualizer7">Visualizer7</button>
             <button id="visualizer8">Visualizer8</button>
-            <button id="visualizer9">Animation</button>
             <button id="HideButton">Hide Button</button>
         </div>
         <div>
-            <video autoplay loop muted plays-inline id="video_control">
+            <!--Required for Local Videos -->
+            <!-- <video autoplay loop muted plays-inline id="video_control">
                 <source src="./styles/Images/cyan-psychedelic-plasma-background-loop-4k-2021-09-02-19-51-33-utc.mp4" type="video/mp4" id="video">
-               <!-- <source src="./styles/Images/colorful-time-space-warp-wormhole-science-fiction-2022-08-10-09-33-08-utc.mp4"  type="video/mp4" id="video2"> -->
-            </video>
+               <!- - <source src="./styles/Images/colorful-time-space-warp-wormhole-science-fiction-2022-08-10-09-33-08-utc.mp4"  type="video/mp4" id="video2"> 
+            </video> -->
+            <!--Required for Embedded Videos -->
+            <div class="iframe-wrapper">
+                <iframe id="embeddedVideo" src="https://player.vimeo.com/video/797278248?autoplay=1&loop=1&byline=0&title=0&muted=1 " allow="autoplay; fullscreen"></iframe>
+            </div>
         </div>
     </div>
         </div>
