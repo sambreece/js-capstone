@@ -190,26 +190,29 @@ input:checked:before {
 #play_along_container {
     display: flex;
     justify-content: center;
-    height: 15%;
+    height: 22%;
     margin-left: -1.5rem;
     margin-top: -1rem;
 }
 
 #field {
-    width: 30%;
+    width: 33%;
     height: 100%;
-    background-color: gray;
-    border-radius: 16px;
+    background-image: url(../images/placeholder_moon.png);
+    background-repeat: no-repeat;
+    background-size: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
 }
 
 #circle {
-    width: 8%;
-    height: 8%;
-    background-color: var(--color-bg-1);
-    border-radius: 50%;
+    width: 30%;
+    height: 35%; 
+    background-image: url(../images/placeholder_astronaut.png);
+    background-repeat: no-repeat;
+    border-radius: 20%;
 }
 
 #circle:active {
