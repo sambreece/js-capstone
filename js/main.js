@@ -297,6 +297,86 @@ function checkBounds(coordinates) {
   return coordinates;
 }
 
+background_video.addEventListener("click", (event) => {
+  if (event.target.id === "visualizer1") {
+    video_control.pause();
+    video.setAttribute(
+      "src",
+      " ./styles/Images/cyan-psychedelic-plasma-background-loop-4k-2021-09-02-19-51-33-utc.mp4"
+    );
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer2") {
+    video_control.pause();
+    video.setAttribute(
+      "src",
+      "./styles/Images/colorful-time-space-warp-wormhole-science-fiction-2022-08-10-09-33-08-utc.mp4"
+    );
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer3") {
+    video_control.pause();
+    video.setAttribute(
+      "src",
+      "./styles/Images/blue-plasma-energy-background-loop-4k-2021-09-02-19-56-13-utc.mp4"
+    );
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer4") {
+    video_control.pause();
+    video.setAttribute(
+      "src",
+      "./styles/Images/wormhole-through-time-and-space-warp-through-scie-2022-08-04-20-26-38-utc.mp4"
+    );
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer5") {
+    video_control.pause();
+    video.setAttribute(
+      "src",
+      "./styles/Images/warp-speed-digital-rays-2022-08-10-14-34-06-utc.mp4"
+    );
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer6") {
+    video_control.pause();
+    video.setAttribute("src", "./styles/Images/Sequence 01.mp4");
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer7") {
+    video_control.pause();
+    video.setAttribute("src", "");
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer8") {
+    video_control.pause();
+    video.setAttribute("src", "./styles/Images/Fire.mp4");
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer9") {
+    video_control.pause();
+    video.setAttribute("src", "");
+    video_control.load();
+    video_control.play();
+  }
+});
+
 //Step Sequencers
 
 //Inst1 (Percussion)
