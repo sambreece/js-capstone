@@ -54,6 +54,7 @@ loop_box.addEventListener("change", (event) => {
   if (!loop_box.checked) {
     clearInterval(repeatSpeech);
     window.speechSynthesis.cancel();
+    console.log("cleared the clearinterval");
   }
 });
 
@@ -297,162 +298,89 @@ function checkBounds(coordinates) {
   return coordinates;
 }
 
-//Step Sequencers
-
-//Inst1 (Percussion)
-const inst1 = new Tone.Players({
-  urls: {
-    0: "hihat.mp3",
-    1: "snare.mp3",
-    2: "kick.mp3",
-    3: "tom1.mp3",
-  },
-  fadeOut: "64n",
-  baseUrl: "https://tonejs.github.io/audio/drum-samples/Techno/",
-}).toDestination();
-
-//Inst2
-const inst2 = new Tone.Players({
-  urls: {
-    0: "Kalimba_1.mp3",
-    1: "Kalimba_2.mp3",
-    2: "Kalimba_3.mp3",
-    3: "Kalimba_4.mp3",
-  },
-  fadeOut: "64n",
-  baseUrl: "https://tonejs.github.io/audio/berklee/",
-}).toDestination();
-
-//Inst3
-const inst3 = new Tone.Players({
-  urls: {
-    0: "bulbpop_1.mp3",
-    1: "bulbpop_2.mp3",
-    2: "bulbpop_3.mp3",
-    3: "bulbpop_4.mp3",
-  },
-  fadeOut: "64n",
-  baseUrl: "https://tonejs.github.io/audio/berklee/",
-}).toDestination();
-//Inst3
-const inst4 = new Tone.Players({
-  urls: {
-    0: "A1.mp3",
-    1: "Cs2.mp3",
-    2: "E2.mp3",
-    3: "Fs2.mp3",
-  },
-  fadeOut: "64n",
-  baseUrl: "https://tonejs.github.io/audio/casio/",
-}).toDestination();
-
-//Step Sequencer Stop/Start Button
-right_container
-  .querySelector("tone-play-toggle")
-  .addEventListener("start", (event) => {
-    Tone.Transport.start();
-  });
-right_container
-  .querySelector("tone-play-toggle")
-  .addEventListener("stop", (event) => {
-    Tone.Transport.stop();
-  });
-tempoSlider.addEventListener(
-  "input",
-  (e) => (Tone.Transport.bpm.value = parseFloat(e.target.value))
-);
-
-//Inst1 Step Controls
-inst1Seq.addEventListener("trigger", ({ detail }) => {
-  inst1.player(detail.row).start(detail.time, 0, "16t");
-});
-
-//Inst2 Step Controls
-
-inst2Seq.addEventListener("trigger", ({ detail }) => {
-  inst2.player(detail.row).start(detail.time, 0, "16t");
-});
-
-//Inst3 Step Controls
-
-inst3Seq.addEventListener("trigger", ({ detail }) => {
-  inst3.player(detail.row).start(detail.time, 0, "16t");
-});
-
-//Inst4 Step Controls
-
-inst4Seq.addEventListener("trigger", ({ detail }) => {
-  inst4.player(detail.row).start(detail.time, 0, "16t");
-});
-
-//Pitch Shift
-const pitchShift = new Tone.PitchShift().toDestination();
-inst1.connect(pitchShift);
-inst2.connect(pitchShift);
-inst3.connect(pitchShift);
-inst4.connect(pitchShift);
-synth.connect(pitchShift);
-
-const toneFFT = new Tone.FFT();
-pitchShift.connect(toneFFT);
-fft({
-  parent: document.querySelector("#content"),
-  tone: toneFFT,
-});
-
-content.querySelector("tone-slider").addEventListener("input", (e) => {
-  pitchShift.pitch = parseFloat(e.target.value);
-});
-
-//Overall Effects Controls
-
-const filter = new Tone.AutoFilter({
-  frequency: 2,
-  depth: 0.6,
-})
-  .toDestination()
-  .start();
-
-const crusher = new Tone.BitCrusher(4).toDestination();
-const shift = new Tone.FrequencyShifter(0).toDestination();
-
-const osc = new Tone.Oscillator({
-  volume: -20,
-  type: "square6",
-  frequency: "C4",
-})
-  .connect(filter)
-  .connect(crusher)
-  .connect(shift);
-
-overall_controls_container.addEventListener("input", (event) => {
-  console.log("touching " + event.target.id);
-  if (event.target.id === "volRange") {
-    osc.volume.value = parseFloat(event.target.value);
+background_video.addEventListener("click", (event) => {
+  if (event.target.id === "visualizer1") {
+    video_control.pause();
+    video.setAttribute(
+      "src",
+      " ./styles/Images/cyan-psychedelic-plasma-background-loop-4k-2021-09-02-19-51-33-utc.mp4"
+    );
+    video_control.load();
+    video_control.play();
   }
-  if (event.target.id === "filterRange") {
-    filter.frequency.value = parseFloat(event.target.value);
-    filter.depth.value = 1;
+
+  if (event.target.id === "visualizer2") {
+    video_control.pause();
+    video.setAttribute(
+      "src",
+      "./styles/Images/colorful-time-space-warp-wormhole-science-fiction-2022-08-10-09-33-08-utc.mp4"
+    );
+    video_control.load();
+    video_control.play();
   }
-  if (event.target.id === "bitRange") {
-    crusher.bits.value = parseFloat(event.target.value);
+
+  if (event.target.id === "visualizer3") {
+    video_control.pause();
+    video.setAttribute(
+      "src",
+      "./styles/Images/blue-plasma-energy-background-loop-4k-2021-09-02-19-56-13-utc.mp4"
+    );
+    video_control.load();
+    video_control.play();
   }
-  if (event.target.id === "freqRange") {
-    shift.frequency.value = parseFloat(event.target.value);
+
+  if (event.target.id === "visualizer4") {
+    video_control.pause();
+    video.setAttribute(
+      "src",
+      "./styles/Images/wormhole-through-time-and-space-warp-through-scie-2022-08-04-20-26-38-utc.mp4"
+    );
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer5") {
+    video_control.pause();
+    video.setAttribute(
+      "src",
+      "./styles/Images/warp-speed-digital-rays-2022-08-10-14-34-06-utc.mp4"
+    );
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer6") {
+    video_control.pause();
+    video.setAttribute("src", "./styles/Images/Sequence 01.mp4");
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer7") {
+    video_control.pause();
+    video.setAttribute("src", "./styles/Images/Mental.mp4");
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer8") {
+    video_control.pause();
+    video.setAttribute("src", "./styles/Images/Fire.mp4");
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer9") {
+    video_control.pause();
+    video.setAttribute("src", "");
+    video_control.load();
+    video_control.play();
+  }
+
+  if (event.target.id === "visualizer9") {
+    video_control.pause();
+    video.setAttribute("src", "");
+    video_control.load();
+    video_control.play();
   }
 });
-
-left_container
-  .querySelector("tone-play-toggle")
-  .addEventListener("start", (event) => {
-    if (event.target.id === "oscillator") {
-      osc.start();
-    }
-  });
-left_container
-  .querySelector("tone-play-toggle")
-  .addEventListener("stop", (event) => {
-    if (event.target.id === "oscillator") {
-      osc.stop();
-    }
-  });
