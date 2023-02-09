@@ -209,7 +209,7 @@ input:checked:before {
 
 #circle {
     width: 30%;
-    height: 35%; 
+    height: 40%; 
     background-image: url(../images/placeholder_astronaut.png);
     background-repeat: no-repeat;
     border-radius: 20%;
@@ -219,18 +219,16 @@ input:checked:before {
     border: 2px solid var(--color-bg-5);
 }
 
-#inst1Seq {
+#inst1Seq,#inst2Seq,#inst3Seq,#inst4Seq {
     padding: 1px;
 }
 
-#inst2Seq {
-    padding: 1px;
+ #inst1Seq::part(cell) , #inst2Seq::part(cell), #inst3Seq::part(cell), #inst4Seq::part(cell) { 
+    background: radial-gradient(circle, rgba(230,230,230,1) 0%, rgba(126,70,252,1) 100%);
+    outline: white solid 0px;
 }
 
-#inst3Seq {
-    padding: 1px;
+ #inst1Seq::part(cell):hover, #inst2Seq::part(cell):hover, #inst3Seq::part(cell):hover, #inst4Seq::part(cell):hover{
+    transform: scale(1.6, 1.6);
 }
 
-#inst4Seq {
-    padding: 1px;
-}

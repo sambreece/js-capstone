@@ -279,8 +279,8 @@ function scale(number, inMin = -75, inMax = 75, outMin = 0, outMax = 1) {
 }
 
 function checkBounds(coordinates) {
-  const marginX = 15;
-  const marginY = 15;
+  const marginX = 30;
+  const marginY = 30;
   const fieldBounds = field.getBoundingClientRect();
   const fieldBoundsY = (fieldBounds.bottom - fieldBounds.top - marginY) / 2;
   const fieldBoundsX = (fieldBounds.right - fieldBounds.left - marginX) / 2;
@@ -456,3 +456,118 @@ left_container
       osc.stop();
     }
   });
+
+//Set Up Shadow DOM elements for styling
+const cells = new Set([
+  inst1Seq.shadowRoot.querySelectorAll(".cell"),
+  inst2Seq.shadowRoot.querySelectorAll(".cell"),
+  inst3Seq.shadowRoot.querySelectorAll(".cell"),
+  inst4Seq.shadowRoot.querySelectorAll(".cell"),
+]);
+
+cells.forEach((arr) => {
+  arr.forEach((element) => {
+    element.setAttribute("part", "cell");
+  });
+});
+
+//Listen for user to trigger step sequence buttons
+step_synth_container.addEventListener("click", (event) => {
+  const currentCells = new Set([
+    inst1Seq.shadowRoot.querySelectorAll(".cell"),
+    inst2Seq.shadowRoot.querySelectorAll(".cell"),
+    inst3Seq.shadowRoot.querySelectorAll(".cell"),
+    inst4Seq.shadowRoot.querySelectorAll(".cell"),
+  ]);
+  currentCells.forEach((instrument) => {
+    instrument.forEach((element) => {
+      element.style.transform = "scale(1, 1)";
+      element.style.filter = "";
+    });
+  });
+
+  const filledCells = new Set([
+    inst1Seq.shadowRoot.querySelectorAll(".cell[filled]"),
+    inst2Seq.shadowRoot.querySelectorAll(".cell[filled]"),
+    inst3Seq.shadowRoot.querySelectorAll(".cell[filled]"),
+    inst4Seq.shadowRoot.querySelectorAll(".cell[filled]"),
+  ]);
+  filledCells.forEach((instrument) => {
+    instrument.forEach((element) => {
+      element.style.transform = "scale(1.2, 1.2)";
+      element.style.filter = "blur(4px)";
+    });
+  });
+});
+
+// Look for attribute changes in shadow dom columns
+const cols = new Set([
+  inst1Seq.shadowRoot.querySelectorAll(".column"),
+  inst2Seq.shadowRoot.querySelectorAll(".column"),
+  inst3Seq.shadowRoot.querySelectorAll(".column"),
+  inst4Seq.shadowRoot.querySelectorAll(".column"),
+]);
+
+let cellObserver = new MutationObserver(function (mutations) {
+  mutations.forEach(function (mutation) {
+    if (mutation.type === "attributes") {
+      console.log("attributes changed");
+
+      // Example of accessing the element for which
+      // event was triggered
+      if (mutation.target.hasAttribute("highlighted")) {
+        mutation.target.style.opacity = 0.2;
+      } else {
+        mutation.target.style.opacity = 1;
+      }
+    }
+
+    console.log(mutation.target);
+  });
+});
+cols.forEach((arr) =>
+  arr.forEach((element) => {
+    element.setAttribute("part", "column");
+    cellObserver.observe(element, {
+      attributes: true,
+    });
+  })
+);
+
+const fftPlot = document.querySelectorAll("tone-fft-vis");
+const sliders = document.querySelectorAll("tone-slider");
+console.log(sliders);
+sliders.forEach((element) => {
+  console.log(element.shadowRoot);
+  const trackContainer = element.shadowRoot
+    .querySelector("mwc-slider")
+    .shadowRoot.querySelector(".mdc-slider__track-container");
+  trackContainer.style.backgroundColor = "white";
+  trackContainer.style.color = "white";
+
+  const track = element.shadowRoot
+    .querySelector("mwc-slider")
+    .shadowRoot.querySelector(".mdc-slider__track");
+  track.style.backgroundColor = "white";
+  track.style.color = "white";
+
+  const trackThumb = element.shadowRoot
+    .querySelector("mwc-slider")
+    .shadowRoot.querySelector(".mdc-slider__thumb");
+  trackThumb.style.fill = "green";
+  trackThumb.style.stroke = "green";
+});
+
+window.addEventListener("load", (event) => {
+  fftPlot[0].shadowRoot.querySelector("style").innerHTML = `#container {
+    margin-top: 5px;
+  }
+
+  canvas {
+    background-color: transparent;
+    width: 100%;
+    border-radius: 4px;
+    height: 40px;`;
+});
+//.mdc-slider mdc-slider--disable-touch-action
+//<div class="mdc-slider__focus-ring"></div>

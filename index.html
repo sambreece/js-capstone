@@ -68,16 +68,16 @@
                     <div id="lfo_container">
                         <div class="mb-3">
                             <tone-play-toggle id="oscillator"></tone-play-toggle>
-                            <tone-slider label="Volume" id="volRange" units="dB" value="-20" step="0.5" min="-30" max="-10"></tone-slider>
+                            <tone-slider class="slider" label="Volume" id="volRange" units="dB" value="-20" step="0.5" min="-30" max="-10"></tone-slider>
                         </div>
                         <div class="mb-3">
-                            <tone-slider label="Frequency Shift" id="freqRange" units="hz" value="0" step="5" min="0" max="50"></tone-slider>
+                            <tone-slider class="slider" label="Frequency Shift" id="freqRange" units="hz" value="0" step="5" min="0" max="50"></tone-slider>
                         </div>
                         <div class="mb-3">
-                            <tone-slider label="Filter" id="filterRange" units="hz" value="0" step="1" min="0" max="15"></tone-slider>
+                            <tone-slider class="slider" label="Filter" id="filterRange" units="hz" value="0" step="1" min="0" max="15"></tone-slider>
                         </div>
                         <div class="mb-3">
-                            <tone-slider label="Bit Crush" id="bitRange" value="16" step="1" min="1" max="16"></tone-slider>
+                            <tone-slider class="slider" label="Bit Crush" id="bitRange" value="16" step="1" min="1" max="16"></tone-slider>
                         </div>
                     </div>
                 </div>
@@ -95,9 +95,9 @@
 
                 <div id="stepControls">
                     <tone-play-toggle></tone-play-toggle>
-                    <tone-slider id="tempoSlider" label="tempo" units="bpm" min="60" max="240" value="90"></tone-slider>
+                    <tone-slider class="slider" id="tempoSlider" label="tempo" units="bpm" min="60" max="240" value="90"></tone-slider>
                     <div id="content">
-                        <tone-slider label="pitch" min="-12" max="12" value="0" units="hz"></tone-slider>
+                        <tone-slider class="slider" label="pitch" min="-12" max="12" value="0" units="hz"></tone-slider>
                     </div>
                 </div>
                 <div id="inst1Step">
