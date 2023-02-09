@@ -19,12 +19,6 @@
   overflow: hidden;
   }
   
-  img {
-  z-index: 1;
-  width: 4rem;
-  height: 4rem;
-  }
-  
   body { 
   margin: 0;
   background-color: var(--color-bg-3);
@@ -333,8 +327,9 @@
   #circle {
   width: 30%;
   height: 40%; 
-  background-image: url(../images/placeholder_astronaut.png);
+  background-image: url(../images/SpaceRangerDance.png);
   background-repeat: no-repeat;
+  background-size: 50px;
   border-radius: 20%;
   }
   
@@ -383,4 +378,10 @@
   transform: scale(1.6, 1.6);
   }
   
-  
+  #astronautHeader {
+    position: absolute;
+    z-index: 5;
+    height: 75px;
+    width: 75px;
+    left: 1000px;
+  }
