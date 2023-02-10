@@ -685,8 +685,8 @@ sliders.forEach((element) => {
   const trackThumb = element.shadowRoot
     .querySelector("mwc-slider")
     .shadowRoot.querySelector(".mdc-slider__thumb");
-  trackThumb.style.fill = "green";
-  trackThumb.style.stroke = "green";
+  trackThumb.style.fill = "#FF24FF";
+  trackThumb.style.stroke = "#FF24FF";
 });
 
 window.addEventListener("load", (event) => {
