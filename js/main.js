@@ -297,83 +297,143 @@ function checkBounds(coordinates) {
   return coordinates;
 }
 
+// //Required for Local Videos
+// background_video.addEventListener("click", (event) => {
+//   if (event.target.id === "visualizer1") {
+//     video_control.pause();
+//     video.setAttribute(
+//       "src",
+//       " ./styles/Images/cyan-psychedelic-plasma-background-loop-4k-2021-09-02-19-51-33-utc.mp4"
+//     );
+//     video_control.load();
+//     video_control.play();
+//   }
+
+//   if (event.target.id === "visualizer2") {
+//     video_control.pause();
+//     video.setAttribute(
+//       "src",
+//       "./styles/Images/colorful-time-space-warp-wormhole-science-fiction-2022-08-10-09-33-08-utc.mp4"
+//     );
+//     video_control.load();
+//     video_control.play();
+//   }
+
+//   if (event.target.id === "visualizer3") {
+//     video_control.pause();
+//     video.setAttribute(
+//       "src",
+//       "./styles/Images/blue-plasma-energy-background-loop-4k-2021-09-02-19-56-13-utc.mp4"
+//     );
+//     video_control.load();
+//     video_control.play();
+//   }
+
+//   if (event.target.id === "visualizer4") {
+//     video_control.pause();
+//     video.setAttribute(
+//       "src",
+//       "./styles/Images/wormhole-through-time-and-space-warp-through-scie-2022-08-04-20-26-38-utc.mp4"
+//     );
+//     video_control.load();
+//     video_control.play();
+//   }
+
+//   if (event.target.id === "visualizer5") {
+//     video_control.pause();
+//     video.setAttribute(
+//       "src",
+//       "./styles/Images/warp-speed-digital-rays-2022-08-10-14-34-06-utc.mp4"
+//     );
+//     video_control.load();
+//     video_control.play();
+//   }
+
+//   if (event.target.id === "visualizer6") {
+//     video_control.pause();
+//     video.setAttribute("src", "./styles/Images/Sequence 01.mp4");
+//     video_control.load();
+//     video_control.play();
+//   }
+
+//   if (event.target.id === "visualizer7") {
+//     video_control.pause();
+//     video.setAttribute("src", "");
+//     video_control.load();
+//     video_control.play();
+//   }
+
+//   if (event.target.id === "visualizer8") {
+//     video_control.pause();
+//     video.setAttribute("src", "./styles/Images/Fire.mp4");
+//     video_control.load();
+//     video_control.play();
+//   }
+
+//   if (event.target.id === "visualizer9") {
+//     video_control.pause();
+//     video.setAttribute("src", "");
+//     video_control.load();
+//     video_control.play();
+//   }
+// });
+
+//Required for Embedded Videos
 background_video.addEventListener("click", (event) => {
   if (event.target.id === "visualizer1") {
-    video_control.pause();
-    video.setAttribute(
+    embeddedVideo.setAttribute(
       "src",
-      " ./styles/Images/cyan-psychedelic-plasma-background-loop-4k-2021-09-02-19-51-33-utc.mp4"
+      "https://player.vimeo.com/video/797278248?autoplay=1&autopause=0&loop=1&byline=0&title=0&quality=4K&muted=1"
     );
-    video_control.load();
-    video_control.play();
   }
 
   if (event.target.id === "visualizer2") {
-    video_control.pause();
-    video.setAttribute(
+    embeddedVideo.setAttribute(
       "src",
-      "./styles/Images/colorful-time-space-warp-wormhole-science-fiction-2022-08-10-09-33-08-utc.mp4"
+      "https://player.vimeo.com/video/797277922?autoplay=1&autopause=0&loop=1&byline=0&title=0&quality=4K&muted=1"
     );
-    video_control.load();
-    video_control.play();
   }
 
   if (event.target.id === "visualizer3") {
-    video_control.pause();
-    video.setAttribute(
+    embeddedVideo.setAttribute(
       "src",
-      "./styles/Images/blue-plasma-energy-background-loop-4k-2021-09-02-19-56-13-utc.mp4"
+      "https://player.vimeo.com/video/797278124?autoplay=1&autopause=0&loop=1&byline=0&title=0&quality=4K&muted=1"
     );
-    video_control.load();
-    video_control.play();
   }
 
   if (event.target.id === "visualizer4") {
-    video_control.pause();
-    video.setAttribute(
+    embeddedVideo.setAttribute(
       "src",
-      "./styles/Images/wormhole-through-time-and-space-warp-through-scie-2022-08-04-20-26-38-utc.mp4"
+      "https://player.vimeo.com/video/797277820?autoplay=1&autopause=0&loop=1&byline=0&title=0&quality=4K&muted=1"
     );
-    video_control.load();
-    video_control.play();
   }
 
   if (event.target.id === "visualizer5") {
-    video_control.pause();
-    video.setAttribute(
+    embeddedVideo.setAttribute(
       "src",
-      "./styles/Images/warp-speed-digital-rays-2022-08-10-14-34-06-utc.mp4"
+      "https://player.vimeo.com/video/797277464?autoplay=1&autopause=0&loop=1&byline=0&title=0&quality=4K&muted=1"
     );
-    video_control.load();
-    video_control.play();
   }
 
   if (event.target.id === "visualizer6") {
-    video_control.pause();
-    video.setAttribute("src", "./styles/Images/Sequence 01.mp4");
-    video_control.load();
-    video_control.play();
+    embeddedVideo.setAttribute(
+      "src",
+      "https://player.vimeo.com/video/797277025?autoplay=1&autopause=0&loop=1&byline=0&title=0&quality=4K&muted=1"
+    );
   }
 
   if (event.target.id === "visualizer7") {
-    video_control.pause();
-    video.setAttribute("src", "");
-    video_control.load();
-    video_control.play();
+    embeddedVideo.setAttribute(
+      "src",
+      "https://player.vimeo.com/video/797451041?autoplay=1&autopause=0&loop=1&byline=0&title=0&quality=4K&muted=1"
+    );
   }
 
   if (event.target.id === "visualizer8") {
-    video_control.pause();
-    video.setAttribute("src", "./styles/Images/Fire.mp4");
-    video_control.load();
-    video_control.play();
-  }
-
-  if (event.target.id === "visualizer9") {
-    video_control.pause();
-    video.setAttribute("src", "");
-    video_control.load();
-    video_control.play();
+    embeddedVideo.setAttribute(
+      "src",
+      "https://player.vimeo.com/video/797523040?autoplay=1&autopause=0&loop=1&byline=0&title=0&quality=4K&muted=1"
+    );
   }
 });
 
@@ -506,7 +566,6 @@ const osc = new Tone.Oscillator({
   .connect(shift);
 
 overall_controls_container.addEventListener("input", (event) => {
-  console.log("touching " + event.target.id);
   if (event.target.id === "volRange") {
     osc.volume.value = parseFloat(event.target.value);
   }
@@ -591,18 +650,12 @@ const cols = new Set([
 let cellObserver = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     if (mutation.type === "attributes") {
-      console.log("attributes changed");
-
-      // Example of accessing the element for which
-      // event was triggered
       if (mutation.target.hasAttribute("highlighted")) {
         mutation.target.style.opacity = 0.2;
       } else {
         mutation.target.style.opacity = 1;
       }
     }
-
-    console.log(mutation.target);
   });
 });
 cols.forEach((arr) =>
@@ -616,9 +669,7 @@ cols.forEach((arr) =>
 
 const fftPlot = document.querySelectorAll("tone-fft-vis");
 const sliders = document.querySelectorAll("tone-slider");
-console.log(sliders);
 sliders.forEach((element) => {
-  console.log(element.shadowRoot);
   const trackContainer = element.shadowRoot
     .querySelector("mwc-slider")
     .shadowRoot.querySelector(".mdc-slider__track-container");
@@ -642,12 +693,9 @@ window.addEventListener("load", (event) => {
   fftPlot[0].shadowRoot.querySelector("style").innerHTML = `#container {
     margin-top: 5px;
   }
-
   canvas {
     background-color: transparent;
     width: 100%;
     border-radius: 4px;
     height: 40px;`;
 });
-//.mdc-slider mdc-slider--disable-touch-action
-//<div class="mdc-slider__focus-ring"></div>
