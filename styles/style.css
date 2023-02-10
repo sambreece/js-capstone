@@ -33,7 +33,9 @@
   top: 0;
   background: linear-gradient(var(--color-bg-5),var(--color-primary));
   overflow: hidden;
-  }
+ 
+}
+
   
   * {
   margin: 0;
@@ -50,31 +52,31 @@
   }
   
   .title {
-  font-family:Arial, Helvetica, sans-serif ;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
   padding-left: 2rem;
-  padding-top: .5rem;
+  padding-top: 1.5rem;
   padding-bottom: 1rem;
   }
   
   .mb-3 {
-  margin-top: .5rem;
+  margin-top: 17px;
   z-index: 1;
   }
   
   .form-label{
-  color: #FF24FF;
+  color: white;
   padding-top: .5rem;
+  margin-bottom: -1.5rem;
   }
   
   #left_container {
   max-width: 500px;
   min-width: 300px;
-  display:grid ;
+  display:flex;
   justify-content: left;
   height: 30%;
   width: 45%;
-  display: relative;
-  justify-content: left;
   padding-left: 1.5rem;
   padding-top: 1.5rem;
   z-index: 2;
@@ -101,6 +103,10 @@
   
   #speech_button_container {
   margin-bottom: 0;
+  }
+
+  #speech_synth_container {
+    height: 322px;
   }
   
   
@@ -129,6 +135,10 @@
   margin-right: 20px;
   }
   
+  #lfo_container {
+    margin-top: 170px;
+  }
+
   #HideButton :hover{
   color: var(--color-bg-1);
   position: center;
@@ -140,8 +150,14 @@
   }
   
   #loop_box {
-  margin-bottom: 10px;
-  width: 30rem
+    margin-bottom: 10px;
+    width: 30rem;
+    color: #FF24FF;
+  }
+  #loop_box:checked {
+    margin-bottom: 10px;
+    width: 30rem;
+
   }
   
   #background_video {
@@ -189,14 +205,16 @@
   margin-top: -2rem;
   }   
   
+ 
+  
     
   .form-control {
   font-size: 14px;
   height: 30px;
   padding: 5px 10px;
   }
-  
-  
+
+
   .dropdown {
   width: 100%;
   }
@@ -209,7 +227,7 @@
   
   #step_synth_container {
   margin-left: -1.5rem;
-  margin-top: -1rem;
+  margin-top: 10px;
   }
   
   #synth_container {
@@ -250,63 +268,16 @@
   
   }
   
-  /*
-  @keyframes animate {
-  0% {
-  background-position: 0%;
-  }
-  100% {
-  background-position: 400%;
-  }
-  } 
-  
-  .SOUNDSDIV{
-  top: 100PX;
-  position: absolute;
-  width: max-content;
-  }
-  
-  input:checked:before {
-  filter: blur(10px);
-  opacity: 1;
-  animation: animate 12s linear infinite;
-  }
-  
-  input:before {
-  content: "";
-  position: absolute;   
-  top: -5px;
-  left: -5px;
-  bottom: -5px;
-  right: -5px;
-  z-index: -1;
-  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
-  background-size: 400%;
-  transition: 0.5s;
-  
-  }
-  
-  input {
-  height: 10px;
-  width: 10px;
-  transform: translate(0%, 0%);
-  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
-  background-size: 400%;
-  cursor: pointer;
-  margin-right: 5px;
-  }
-  
-  input[type="checkbox"] {
-  margin-bottom: 10px;
-  border-radius: 1rem;
-  } */
-  
   #play_along_container {
   display: flex;
   justify-content: center;
-  height: 22%;
+  height: 18%;
   margin-left: -1.5rem;
   margin-top: -1rem;
+  }
+
+  #content {
+    height: 142px;
   }
   
   #field {
@@ -362,9 +333,25 @@
   }
   
   
-  #inst1Seq,#inst2Seq,#inst3Seq,#inst4Seq {
+  #inst1Seq {
   padding: 1px;
+  margin-top:-3px;
+  margin-bottom: -41px;
   }
+
+  #inst2Seq {
+    padding: 1px;
+}
+
+#inst3Seq {
+    padding: 1px;
+    margin-top: -41px;
+}
+
+#inst4Seq {
+    padding: 1px;
+    margin-top: -41px;
+}
   
   #inst1Seq::part(cell) , #inst2Seq::part(cell), #inst3Seq::part(cell), #inst4Seq::part(cell) { 
   background: radial-gradient(circle, rgba(230,230,230,1) 0%, rgba(126,70,252,1) 100%);
@@ -375,12 +362,21 @@
   transform: scale(1.6, 1.6);
   }
   
-  #astronautHeader {
+  #astronautHeader1 {
     position: absolute;
     z-index: 5;
     height: 75px;
     width: 75px;
-    left: 1000px;
+    left: 1560px;
+  }
+
+  #astronautHeader2 {
+    position: absolute;
+    z-index: 5;
+    height: 75px;
+    width: 75px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
   }
 
   .iframe-wrapper {
@@ -405,3 +401,13 @@
     transform: translate(-50%, -50%);
   }
   
+
+  #inst2Step {
+    margin-top:-30px;
+  }
+  #inst3Step {
+    margin-top: -30px;
+  }
+  #inst4Step {
+  margin-top: -30px;
+  }
