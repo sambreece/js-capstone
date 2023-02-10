@@ -52,8 +52,8 @@
   }
   
   .title {
-text-align: center;
-font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
   padding-left: 2rem;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
@@ -73,12 +73,10 @@ font-family: 'Press Start 2P', cursive;
   #left_container {
   max-width: 500px;
   min-width: 300px;
-  display:grid ;
+  display:flex;
   justify-content: left;
   height: 30%;
   width: 45%;
-  display: relative;
-  justify-content: left;
   padding-left: 1.5rem;
   padding-top: 1.5rem;
   z-index: 2;
@@ -137,6 +135,10 @@ font-family: 'Press Start 2P', cursive;
   margin-right: 20px;
   }
   
+  #lfo_container {
+    margin-top: 170px;
+  }
+
   #HideButton :hover{
   color: var(--color-bg-1);
   position: center;
@@ -148,8 +150,14 @@ font-family: 'Press Start 2P', cursive;
   }
   
   #loop_box {
-  margin-bottom: 10px;
-  width: 30rem
+    margin-bottom: 10px;
+    width: 30rem;
+    color: #FF24FF;
+  }
+  #loop_box:checked {
+    margin-bottom: 10px;
+    width: 30rem;
+
   }
   
   #background_video {
@@ -219,7 +227,7 @@ font-family: 'Press Start 2P', cursive;
   
   #step_synth_container {
   margin-left: -1.5rem;
-  margin-top: -1rem;
+  margin-top: 10px;
   }
   
   #synth_container {
@@ -354,12 +362,21 @@ font-family: 'Press Start 2P', cursive;
   transform: scale(1.6, 1.6);
   }
   
-  #astronautHeader {
+  #astronautHeader1 {
     position: absolute;
     z-index: 5;
     height: 75px;
     width: 75px;
     left: 1560px;
+  }
+
+  #astronautHeader2 {
+    position: absolute;
+    z-index: 5;
+    height: 75px;
+    width: 75px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
   }
 
   .iframe-wrapper {
@@ -384,3 +401,13 @@ font-family: 'Press Start 2P', cursive;
     transform: translate(-50%, -50%);
   }
   
+
+  #inst2Step {
+    margin-top:-30px;
+  }
+  #inst3Step {
+    margin-top: -30px;
+  }
+  #inst4Step {
+  margin-top: -30px;
+  }
