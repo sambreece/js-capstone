@@ -435,6 +435,12 @@ background_video.addEventListener("click", (event) => {
       "https://player.vimeo.com/video/797523040?autoplay=1&autopause=0&loop=1&byline=0&title=0&quality=4K&muted=1"
     );
   }
+  if (event.target.id === "visualizer9") {
+    embeddedVideo.setAttribute(
+      "src",
+      "https://player.vimeo.com/video/797579706?autoplay=1&autopause=0&loop=1&byline=0&title=0&quality=4K&muted=1"
+    );
+  }
 });
 
 //Step Sequencers
